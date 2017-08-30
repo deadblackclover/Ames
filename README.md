@@ -1,6 +1,13 @@
 # Ames
 Decentralized and free messenger
 
+## Built with
+* Nuxt.js
+* Vue.js
+* Express.js
+* Babel
+* NeDB
+
 ## Installation
 Here is a simple Ames setup:
 ```bash
