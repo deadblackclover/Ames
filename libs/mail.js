@@ -20,7 +20,7 @@ const sendmail = require('sendmail')({
 function send(email,sub,mes) {
   return new Promise((resolve, reject) => {
     sendmail({
-      from: 'core@dmes.com',
+      from: 'core@ames.test',
       to: email,
       subject: sub,
       html: mes,
