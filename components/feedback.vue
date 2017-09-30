@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="block">
     <div class="name-blocks">
       Feedback
     </div>
