@@ -73,7 +73,8 @@ export default {
       this.panel.chat = true;
     },
     showSearch: function() {
-
+      this.panel.contacts = this.panel.chat = this.panel.setting = this.panel.feedback = false;
+      this.panel.search = true;
     },
     showSetting: function() {
       this.panel.chat = this.panel.search = this.panel.contacts = this.panel.feedback = false;
