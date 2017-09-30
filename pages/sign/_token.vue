@@ -19,15 +19,15 @@ export default {
     }
   },
   mounted(){
-    let vm = this
+    let vm = this;
     axios.post('/api/sign/token', {
       token: this.$route.params.token
     })
     .then(function (response) {
       if(response){
-        this.$router.replace('/profile')
+        vm.$router.replace('/profile');
       }else{
-        this.$router.replace('/')
+        vm.$router.replace('/');
       }
     })
   },
