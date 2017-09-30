@@ -3,7 +3,10 @@ const mail = require('../libs/mail');
 const asave = require('asave');
 const atoken = require('atoken');
 
-let Asave = new asave('./logs/');
+let Asave = new asave({
+  path: './logs/',
+  format: 'csv'                    // csv,log,txt
+});
 let Atoken = new atoken(16);
 
 let authenticationUser = (email) => {

@@ -1,6 +1,9 @@
 const asave = require('asave');
 
-let Asave = new asave('./logs/')
+let Asave = new asave({
+  path: './logs/',
+  format: 'csv'                    // csv,log,txt
+});
 
 const sendmail = require('sendmail')({
   logger: {

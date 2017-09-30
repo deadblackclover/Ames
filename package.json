@@ -10,8 +10,8 @@
   "author": "DEADBLACKCLOVER <asocio@protonmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "asave": "^1.0.0",
-    "atoken": "^1.1.0",
+    "asave": "^1.1.0",
+    "atoken": "^1.1.1",
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",

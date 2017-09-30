@@ -3,7 +3,10 @@ const express = require('express')
 const asave = require('asave');
 const authentication = require('../libs/authentication');
 
-let Asave = new asave('./logs/')
+let Asave = new asave({
+  path: './logs/',
+  format: 'csv'                    // csv,log,txt
+});
 const router = express.Router()
 let app = express()
 
