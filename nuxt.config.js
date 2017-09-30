@@ -18,7 +18,8 @@ module.exports = {
   css: [
     '~/assets/css/main.css',
     '~/assets/css/profile.css',
-    '~/assets/css/blink.css'
+    '~/assets/css/blink.css',
+    '~/assets/css/contacts.css'
   ],
   cache: false,
   serverMiddleware: [

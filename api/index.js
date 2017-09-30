@@ -58,6 +58,23 @@ router.post("/sign/token", (req, res) => {
   )
 })
 
+router.post("/contacts", (req, res) => {
+  if (!req.body) return res.sendStatus(400);
+  let db = new Datastore({filename : './db/users'});
+  db.loadDatabase(function (err) {
+    if(err){logger.save('dbconnect',err);}
+  });
+  if(req.session.authorized){
+    let email = req.session.email;
+    db.find({email:email}, function (err, docs) {
+      if(err){logger.save('dbfind',err);}
+      if(docs[0] != undefined){
+        res.send(docs[0].contacts)
+      }
+    });
+  }
+})
+
 module.exports = {
   path: '/api',
   handler: router

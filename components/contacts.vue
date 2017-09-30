@@ -3,7 +3,8 @@
     <div class="name-blocks">
       Contacts
     </div>
-    <div class="contact text-center" v-for="contact in contacts" @click="showChat">
+    <div class="contact" v-for="contact in contacts" @click="showChat">
+      {{ contact }}
     </div>
   </div>
 </template>
