@@ -1,0 +1,33 @@
+{
+  "name": "Ames",
+  "version": "0.2.0",
+  "description": "Decentralized and free messenger",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  },
+  "author": "DEADBLACKCLOVER <asocio@protonmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "asave": "^1.0.0",
+    "atoken": "^1.1.0",
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "fs": "0.0.1-security",
+    "nedb": "^1.8.0",
+    "nuxt": "^1.0.0-rc8",
+    "sendmail": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

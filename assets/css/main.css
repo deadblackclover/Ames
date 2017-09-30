@@ -1,0 +1,9 @@
+body{
+  font-family: 'Rajdhani', sans-serif;
+  width: 100%;
+  margin: 0;
+}
+a, a:visited, a:active, a:hover {
+  text-decoration: none;
+  color: black;
+}
