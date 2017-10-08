@@ -3,19 +3,33 @@
     <div class="name-blocks">
       Setting
     </div>
-    <div class="setting text-center">
-      Change username
-      <input type="text" v-model="setting.username">
-      <input type="button" name="" value="Change" @click="changeUsername">
-    </div>
-    <div class="setting text-center">
-      Change email
-      <input type="text" v-model="setting.email">
-      <input type="button" name="" value="Change" @click="changeEmail">
-    </div>
-    <div class="setting text-center">
-      Change photo
-      <input type="file" @change="changePhoto($event)">
+    <div class="setting">
+      <div class="setting-item">
+        <div class="setting-item-left">
+          Change username
+        </div>
+        <div class="setting-item-right">
+          <input type="text" v-model="setting.username">
+          <input type="button" name="" value="Change" @click="changeUsername">
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="setting-item-left">
+          Change email
+        </div>
+        <div class="setting-item-right">
+          <input type="text" v-model="setting.email">
+          <input type="button" name="" value="Change" @click="changeEmail">
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="setting-item-left">
+          Change photo
+        </div>
+        <div class="setting-item-right">
+          <input type="file" @change="changePhoto($event)">
+        </div>
+      </div>
     </div>
   </div>
 </template>
