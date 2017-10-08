@@ -1,3 +1,8 @@
+@media screen and (min-height: 376px){
+  .main-profile{
+    height: 100vh;
+  }
+}
 .main-profile, .left, .profile, .right{
   display: flex;
 }
@@ -12,7 +17,6 @@
 }
 .main-profile{
   width: 100%;
-  height: 100vh;
 }
 .left{
   background-color: #b2b2b2;
