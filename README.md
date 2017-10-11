@@ -1,4 +1,6 @@
 # Ames
+![Ames](/static/logo.png)
+
 Decentralized and free messenger
 
 ## Built with
