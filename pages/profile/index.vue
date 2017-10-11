@@ -3,9 +3,9 @@
     <div class="left">
       <div class="profile">
         <div class="photo">
-          <img src="" alt="photo">
+          <img :src="photo" alt="photo">
         </div>
-        <div class="">username</div>
+        <div class="">{{ username }}</div>
       </div>
       <div class="menu btn" @click="showContacts">Contacts</div>
       <div class="menu btn" @click="showSearch">Search</div>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import chat from "~/components/chat.vue"
 import contacts from "~/components/contacts.vue"
 import feedback from "~/components/feedback.vue"
@@ -51,6 +53,8 @@ export default {
   },
   data() {
     return {
+      username: null,
+      photo: null,
       panel:{
         contacts: false,
         chat: false,
@@ -59,6 +63,14 @@ export default {
         feedback: false
       },
     }
+  },
+  mounted(){
+    let vm = this;
+    axios.post('/api/profile')
+    .then(function (response) {
+      vm.username = response.data.nickname;
+      vm.photo = response.data.photo;
+    })
   },
   methods: {
     outProfile: function() {

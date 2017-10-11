@@ -75,6 +75,23 @@ router.post("/contacts", (req, res) => {
   }
 })
 
+router.post("/profile", (req, res) => {
+  if (!req.body) return res.sendStatus(400);
+  let db = new Datastore({filename : './db/users'});
+  db.loadDatabase(function (err) {
+    if(err){logger.save('dbconnect',err);}
+  });
+  if(req.session.authorized){
+    let email = req.session.email;
+    db.find({email:email}, function (err, docs) {
+      if(err){console.error(err);}
+      if(docs[0] != undefined){
+        res.send(docs[0]);
+      }
+    });
+  }
+})
+
 module.exports = {
   path: '/api',
   handler: router
