@@ -1,7 +1,10 @@
 <template lang="html">
-  <div class="block">
-    <div class="name-blocks">
-      Chats
+  <div class="chat">
+    <div class="chat-messages">
+    </div>
+    <div class="chat-ipt">
+      <input type="text" v-model="message">
+      <input type="button" value="Send" @click="send">
     </div>
   </div>
 </template>
@@ -10,6 +13,15 @@
 import axios from 'axios'
 
 export default {
+  data(){
+    return {
+      message: ''
+    }
+  },
+  methods: {
+    send: function () {
 
+    }
+  }
 }
 </script>
