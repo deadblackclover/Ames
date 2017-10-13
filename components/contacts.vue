@@ -11,7 +11,7 @@
         {{ contact }}
       </div>
     </div>
-    <chat v-if="chatView"></chat>
+    <chat v-if="chatView" :to="to"></chat>
   </div>
 </template>
 

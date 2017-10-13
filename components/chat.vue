@@ -18,9 +18,10 @@ export default {
       message: ''
     }
   },
+  props: ['to'],
   methods: {
     send: function () {
-
+      console.log(this.to);
     }
   }
 }
