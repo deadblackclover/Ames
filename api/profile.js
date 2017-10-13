@@ -3,6 +3,10 @@ const express = require('express');
 const asave = require('asave');
 
 const router = express.Router();
+let Asave = new asave({
+  path: './logs/',
+  format: 'csv'
+});
 
 router.post("/", (req, res) => {
   if (!req.body) return res.sendStatus(400);
