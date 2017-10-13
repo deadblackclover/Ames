@@ -7,18 +7,14 @@
         </div>
         <div class="">{{ username }}</div>
       </div>
-      <div class="menu btn" @click="showContacts">Contacts</div>
-      <div class="menu btn" @click="showSearch">Search</div>
-      <div class="menu btn" @click="showSetting">Setting</div>
-      <div class="menu btn" @click="showFeedback">Feedback</div>
+      <div class="menu btn" @click="setView('contacts')">Contacts</div>
+      <div class="menu btn" @click="setView('search')">Search</div>
+      <div class="menu btn" @click="setView('setting')">Setting</div>
+      <div class="menu btn" @click="setView('feedback')">Feedback</div>
       <div class="menu btn" @click="outProfile">Sing Out</div>
     </div>
     <div class="right">
-      <chat v-if="panel.chat"></chat>
-      <contacts v-if="panel.contacts"></contacts>
-      <feedback v-if="panel.feedback"></feedback>
-      <search v-if="panel.search"></search>
-      <setting v-if="panel.setting"></setting>
+      <component v-bind:is="currentView"></component>
     </div>
   </div>
 </template>
@@ -26,7 +22,6 @@
 <script>
 import axios from 'axios'
 
-import chat from "~/components/chat.vue"
 import contacts from "~/components/contacts.vue"
 import feedback from "~/components/feedback.vue"
 import search from "~/components/search.vue"
@@ -44,25 +39,18 @@ export default {
     }
   },
   middleware: 'check-auth',
-  components: {
-    chat,
-    contacts,
-    feedback,
-    search,
-    setting
-  },
   data() {
     return {
       username: null,
       photo: null,
-      panel:{
-        contacts: false,
-        chat: false,
-        search: false,
-        setting: false,
-        feedback: false
-      },
+      currentView: 'contacts'
     }
+  },
+  components: {
+    contacts,
+    feedback,
+    search,
+    setting
   },
   mounted(){
     let vm = this;
@@ -76,25 +64,8 @@ export default {
     outProfile: function() {
       window.location.href = "/out";
     },
-    showContacts: function() {
-      this.panel.chat = this.panel.search = this.panel.setting = this.panel.feedback = false;
-      this.panel.contacts = true;
-    },
-    showChat: function() {
-      this.panel.contacts = this.panel.search = this.panel.setting = this.panel.feedback = false;
-      this.panel.chat = true;
-    },
-    showSearch: function() {
-      this.panel.contacts = this.panel.chat = this.panel.setting = this.panel.feedback = false;
-      this.panel.search = true;
-    },
-    showSetting: function() {
-      this.panel.chat = this.panel.search = this.panel.contacts = this.panel.feedback = false;
-      this.panel.setting = true;
-    },
-    showFeedback: function() {
-      this.panel.chat = this.panel.search = this.panel.setting = this.panel.contacts = false;
-      this.panel.feedback = true;
+    setView: function (name) {
+      this.currentView = name;
     }
   }
 }
