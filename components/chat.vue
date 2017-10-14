@@ -15,13 +15,29 @@ import axios from 'axios'
 export default {
   data(){
     return {
-      message: ''
+      message: '',
+      err: false
     }
   },
   props: ['to'],
   methods: {
     send: function () {
-      console.log(this.to);
+      let to = this.to;
+      let name, host = null;
+      if(to.indexOf("@")){
+        host = to.substring(to.indexOf("@")+1);
+        name = to.substring(0,to.indexOf("@"));
+        host = 'http://' + host + '/api/send';
+        axios.post(host, {
+          name: name,
+          message: this.message
+        })
+        .then(function (res) {
+          if(!res){
+            this.err = true;
+          }
+        })
+      }
     }
   }
 }
