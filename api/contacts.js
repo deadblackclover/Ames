@@ -9,7 +9,6 @@ let Asave = new asave({
 });
 
 router.post("/", (req, res) => {
-  if (!req.body) return res.sendStatus(400);
   let db = new Datastore({filename : './db/users'});
   db.loadDatabase(function (err) {
     if(err){Asave.save('dbconnect',err);}
