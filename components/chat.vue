@@ -37,6 +37,8 @@ export default {
             this.err = true;
           }
         })
+      }else{
+        this.err = true;
       }
     }
   }
