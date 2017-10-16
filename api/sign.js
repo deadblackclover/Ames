@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
     let signPromise = authentication.authenticationUser(email);
     signPromise.then(
       result =>{
-        res.send(result)
+        res.send(result);
       }
     )
   }

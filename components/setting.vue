@@ -67,7 +67,7 @@ export default {
       .then((response) => {
         console.log(response.data);
         if(response.data){
-          window.location.href = "/profile"
+          window.location.href = "/profile";
         }
       });
     },

@@ -9,11 +9,11 @@ const router = express.Router();
 let app = express();
 
 router.use((req, res, next) => {
-  Object.setPrototypeOf(req, app.request)
-  Object.setPrototypeOf(res, app.response)
-  req.res = res
-  res.req = req
-  next()
+  Object.setPrototypeOf(req, app.request);
+  Object.setPrototypeOf(res, app.response);
+  req.res = res;
+  res.req = req;
+  next();
 })
 
 router.use('/sign', sign);

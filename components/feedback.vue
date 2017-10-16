@@ -29,7 +29,7 @@ export default {
       }))
       .then((response) => {
         if(response.data){
-          window.location.href = "/profile"
+          window.location.href = "/profile";
         }
       });
     }

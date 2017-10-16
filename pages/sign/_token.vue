@@ -32,7 +32,7 @@ export default {
     })
   },
   validate ({ params }){
-    return true
+    return true;
   }
 }
 </script>

@@ -10,7 +10,7 @@ router.post("/", (req, res) => {
     db.find({email:email}, function (err, docs) {
       if(err){logger.save('dbfind',err);}
       if(docs[0] != undefined){
-        res.send(docs[0].contacts)
+        res.send(docs[0].contacts);
       }
     });
   }

@@ -22,9 +22,9 @@ function send(email,sub,mes) {
     }, function(err, reply) {
       if(err){
         logger.save('email',err);
-        resolve(false)
+        resolve(false);
       }else{
-        resolve(true)
+        resolve(true);
       }
     });
   });
