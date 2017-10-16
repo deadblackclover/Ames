@@ -1,25 +1,15 @@
-const Datastore = require('nedb');
+const db = require('../libs/db');
 const mail = require('../libs/mail');
-const asave = require('asave');
+const logger = require('../libs/logger');
 const atoken = require('atoken');
 
-let Asave = new asave({
-  path: './logs/',
-  format: 'csv'                    // csv,log,txt
-});
 let Atoken = new atoken(16);
 
 let authenticationUser = (email) => {
   return new Promise((resolve, reject) => {
-    let db = new Datastore({filename: './db/users'});
-    db.loadDatabase(function(err) {
-      if (err) {
-        Asave.save('dbconnect', err);
-      }
-    });
     db.find({email: email}, function(err, docs) {
       if (err) {
-        Asave.save('dbfind', err);
+        logger.save('dbfind', err);
       }
       if (docs[0] != undefined) {
         // Authentication user

@@ -1,9 +1,4 @@
-const asave = require('asave');
-
-let Asave = new asave({
-  path: './logs/',
-  format: 'csv'                    // csv,log,txt
-});
+const logger = require('../libs/logger');
 
 const sendmail = require('sendmail')({
   logger: {
@@ -26,7 +21,7 @@ function send(email,sub,mes) {
       html: mes,
     }, function(err, reply) {
       if(err){
-        Asave.save('email',err);
+        logger.save('email',err);
         resolve(false)
       }else{
         resolve(true)
