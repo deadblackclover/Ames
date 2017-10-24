@@ -9,7 +9,7 @@ let Asave = new asave({
 let users = new Datastore({filename: './db/users'});
 let messages = new Datastore({filename: './db/messages'});
 
-db.loadDatabase(function(err) {
+users.loadDatabase(function(err) {
   if(err){Asave.save('dbconnect', err);}
 });
 
