@@ -6,9 +6,18 @@ let Asave = new asave({
   format: 'csv'
 });
 
-let db = new Datastore({filename: './db/users'});
+let users = new Datastore({filename: './db/users'});
+let messages = new Datastore({filename: './db/messages'});
+
 db.loadDatabase(function(err) {
   if(err){Asave.save('dbconnect', err);}
 });
 
-module.exports = db;
+messages.loadDatabase(function(err) {
+  if(err){Asave.save('dbconnect', err);}
+});
+
+module.exports = {
+  users: users,
+  messages: messages
+};
