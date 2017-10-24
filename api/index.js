@@ -4,6 +4,7 @@ const sign = require('./sign');
 const profile = require('./profile');
 const contacts = require('./contacts');
 const send = require('./send');
+const messages = require('./messages');
 
 const router = express.Router();
 let app = express();
@@ -17,9 +18,10 @@ router.use((req, res, next) => {
 })
 
 router.use('/sign', sign);
-router.use('/contacts', contacts);
 router.use('/profile', profile);
-router.use('/send', send);
+router.use('/profile/contacts', contacts);
+router.use('/profile/send', send);
+router.use('/profile/messages', messages);
 
 module.exports = {
   path: '/api',
