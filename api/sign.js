@@ -22,7 +22,7 @@ router.post("/token", (req, res) => {
   if (!req.body) return res.sendStatus(400);
   let signIn = new Promise((resolve,reject) => {
     let token = req.body.token;
-    db.find({token:token}, function (err, docs) {
+    db.users.find({token:token}, function (err, docs) {
       if(err){logger.save('dbfind',err);}
       if(docs[0] != undefined){
         req.session.authorized = true;

@@ -7,7 +7,7 @@ let Atoken = new atoken(16);
 
 let authenticationUser = (email) => {
   return new Promise((resolve, reject) => {
-    db.find({email: email}, function(err, docs) {
+    db.users.find({email: email}, function(err, docs) {
       if (err) {
         logger.save('dbfind', err);
       }
@@ -16,7 +16,7 @@ let authenticationUser = (email) => {
         let data = docs[0];
         let token = Atoken.generate();
         data.token = token;
-        db.update({email: email}, data, {}, function(err, res) {});
+        db.users.update({email: email}, data, {}, function(err, res) {});
         let message = `You token:${token}`;
         let mailPromise = mail.send(email, 'Ames', message);
         mailPromise.then((result) => {
@@ -25,7 +25,7 @@ let authenticationUser = (email) => {
       } else {
         // Create new user
         let token = Atoken.generate();
-        db.insert({email: email, token: token, nickname: 'User', photo: null, contacts: ['admin@1', 'admin@2', 'admin@3']});
+        db.users.insert({email: email, token: token, nickname: 'User', photo: null, contacts: ['admin@1', 'admin@2', 'admin@3']});
         let message = `You token:${token}`;
         let mailPromise = mail.send(email, 'Ames', message);
         mailPromise.then((result) => {

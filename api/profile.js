@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/", (req, res) => {
   if(req.session.authorized){
     let email = req.session.email;
-    db.find({email:email}, function (err, docs) {
+    db.users.find({email:email}, function (err, docs) {
       if(err){logger.save('dbfind',err);}
       if(docs[0] != undefined){
         res.send(docs[0]);
