@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="chat">
     <div class="chat-messages">
+      <div class="" v-for="ms in messages">
+        {{ ms }}
+      </div>
     </div>
     <div class="chat-ipt">
       <input type="text" v-model="message">
@@ -15,11 +18,20 @@ import axios from 'axios'
 export default {
   data(){
     return {
-      message: '',
+      message: null,
+      messages: null,
       err: false
     }
   },
   props: ['to'],
+  mounted () {
+    let vm = this;
+    axios.post('/api/profile/message',{
+      to: vm.to
+    }).then((response) => {
+      vm.messages = response.data;
+    });
+  },
   methods: {
     send: function () {
       let to = this.to;
@@ -27,7 +39,7 @@ export default {
       if(to.indexOf("@")){
         host = to.substring(to.indexOf("@")+1);
         name = to.substring(0,to.indexOf("@"));
-        host = 'http://' + host + '/api/send';
+        host = 'http://' + host + '/api/profile/send';
         axios.post(host, {
           name: name,
           message: this.message

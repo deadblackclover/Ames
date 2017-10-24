@@ -33,7 +33,7 @@ export default {
   },
   mounted () {
     let vm = this;
-    axios.post('/api/contacts').then((response) => {
+    axios.post('/api/profile/contacts').then((response) => {
       vm.contacts = response.data;
     });
   },
