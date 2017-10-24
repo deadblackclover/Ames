@@ -25,7 +25,7 @@ let authenticationUser = (email) => {
       } else {
         // Create new user
         let token = Atoken.generate();
-        db.users.insert({email: email, token: token, nickname: 'User', photo: null, contacts: ['admin@1', 'admin@2', 'admin@3']});
+        db.users.insert({email: email, token: token, username: 'User', photo: null, contacts: ['admin@1', 'admin@2', 'admin@3']});
         let message = `You token:${token}`;
         let mailPromise = mail.send(email, 'Ames', message);
         mailPromise.then((result) => {

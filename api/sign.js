@@ -26,7 +26,7 @@ router.post("/token", (req, res) => {
       if(err){logger.save('dbfind',err);}
       if(docs[0] != undefined){
         req.session.authorized = true;
-        req.session.email = docs[0].email;
+        req.session.username = docs[0].username;
         resolve(true);
       }else{
         logger.save('sign','Error token');
