@@ -11,8 +11,12 @@ router.post("/", (req, res) => {
       if(err){logger.save('dbfind',err);}
       if(docs[0] != undefined){
         res.send(docs[0].contacts);
+      }else{
+        res.send(false);
       }
     });
+  }else{
+    res.send(false);
   }
 })
 
