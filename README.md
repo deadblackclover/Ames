@@ -10,8 +10,8 @@ Decentralized and free messenger
 * Babel
 * NeDB
 
-## Installation
-Here is a simple Ames setup:
+## Start Ames
+Here is a simple Ames start:
 ```bash
 git clone https://github.com/Asocio/Ames.git
 npm install
