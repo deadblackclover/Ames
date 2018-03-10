@@ -10,7 +10,6 @@
       <div class="menu btn" @click="setView('contacts')">Contacts</div>
       <div class="menu btn" @click="setView('search')">Search</div>
       <div class="menu btn" @click="setView('setting')">Setting</div>
-      <div class="menu btn" @click="setView('feedback')">Feedback</div>
       <div class="menu btn" @click="outProfile">Sing Out</div>
     </div>
     <div class="right">
@@ -23,7 +22,6 @@
 import axios from 'axios'
 
 import contacts from "~/components/contacts.vue"
-import feedback from "~/components/feedback.vue"
 import search from "~/components/search.vue"
 import setting from "~/components/setting.vue"
 
@@ -48,7 +46,6 @@ export default {
   },
   components: {
     contacts,
-    feedback,
     search,
     setting
   },
