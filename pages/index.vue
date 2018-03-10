@@ -42,30 +42,30 @@ export default {
   },
   methods: {
     authorization: function(){
-      let vm = this;
+      let vm = this
       if(vm.email != ""){
         axios.post('/api/sign', {
           email: vm.email
         })
         .then(function (response) {
           if(response.data == true){
-            vm.alert.visible = true;
-            vm.alert.message = 'The letter was successfully sent to the post!';
+            vm.alert.visible = true
+            vm.alert.message = 'The letter was successfully sent to the post!'
           }else{
-            vm.alert.visible = true;
-            vm.alert.message = 'Server error';
+            vm.alert.visible = true
+            vm.alert.message = 'Server error'
           }
         })
         .catch(function (error) {
-          console.log(error);
-          vm.alert.visible = true;
-          vm.alert.misible = 'Bad request';
-        });
+          console.log(error)
+          vm.alert.visible = true
+          vm.alert.misible = 'Bad request'
+        })
       }else{
-        vm.alert.visible = true;
-        vm.alert.message = 'You did not enter an email';
+        vm.alert.visible = true
+        vm.alert.message = 'You did not enter an email'
       }
-    },
+    }
   }
 }
 </script>
