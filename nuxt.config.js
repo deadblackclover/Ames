@@ -17,6 +17,7 @@ module.exports = {
   },
   css: [
     '~/assets/css/main.css',
+    '~/assets/css/index.css',
     '~/assets/css/profile.css',
     '~/assets/css/blink.css',
     '~/assets/css/contacts.css',
