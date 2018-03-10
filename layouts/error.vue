@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="container">
     <div>
-      <h1 v-if="error.statusCode === 404">Page not found</h1>
-      <h1 v-else>Error</h1>
+      <h1 v-if="error.statusCode === 404">{{ error.statusCode }} Page not found</h1>
+      <h1 v-else>{{ error.statusCode }} Error</h1>
     </div>
     <div class="img">
       <img src="/logo.png" alt="Error" />
