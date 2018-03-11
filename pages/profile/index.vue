@@ -52,17 +52,17 @@ export default {
   mounted(){
     let vm = this;
     axios.post('/api/profile')
-    .then(function (response) {
-      vm.username = response.data.nickname;
-      vm.photo = response.data.photo;
+    .then(function (res) {
+      vm.username = res.data.username
+      vm.photo = res.data.photo
     })
   },
   methods: {
     outProfile: function() {
-      window.location.href = "/out";
+      window.location.href = "/out"
     },
     setView: function (name) {
-      this.currentView = name;
+      this.currentView = name
     }
   }
 }

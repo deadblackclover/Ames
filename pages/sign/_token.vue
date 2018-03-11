@@ -25,14 +25,14 @@ export default {
     })
     .then(function (res) {
       if(res.data){
-        window.location.href = '/profile';
+        window.location.href = '/profile'
       }else{
-        window.location.href = '/';
+        window.location.href = '/'
       }
     })
   },
   validate ({ params }){
-    return true;
+    return true
   }
 }
 </script>
