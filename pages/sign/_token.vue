@@ -23,11 +23,11 @@ export default {
     axios.post('/api/sign/token', {
       token: this.$route.params.token
     })
-    .then(function (response) {
-      if(response){
-        vm.$router.replace('/profile');
+    .then(function (res) {
+      if(res.data){
+        window.location.href = '/profile';
       }else{
-        vm.$router.replace('/');
+        window.location.href = '/';
       }
     })
   },
