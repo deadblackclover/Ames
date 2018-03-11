@@ -7,8 +7,20 @@
     "build": "nuxt build",
     "start": "nuxt start"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Asocio/Ames"
+  },
+  "bugs": {
+    "url": "https://github.com/Asocio/Ames/issues"
+  },
   "author": "DEADBLACKCLOVER <asocio@protonmail.com>",
   "license": "GPL-3.0",
+  "keywords": [
+    "ames",
+    "messenger",
+    "decentralized"
+  ],
   "dependencies": {
     "asave": "^1.1.0",
     "atoken": "^1.1.1",
