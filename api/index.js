@@ -17,13 +17,13 @@ router.use((req, res, next) => {
   next();
 })
 
-router.use('/sign', sign);
-router.use('/profile', profile);
-router.use('/profile/contacts', contacts);
-router.use('/profile/send', send);
-router.use('/profile/messages', messages);
+router.use('/api/sign', sign);
+router.use('/api/profile', profile);
+router.use('/api/profile/contacts', contacts);
+router.use('/api/profile/send', send);
+router.use('/api/profile/messages', messages);
 
 module.exports = {
-  path: '/api',
+  path: '/',
   handler: router
 }
