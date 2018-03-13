@@ -1,5 +1,9 @@
+@font-face{
+	font-family: Montserrat;
+	src: url('~/assets/fonts/Montserrat-Regular.ttf');
+}
 body{
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   width: 100%;
   margin: 0;
 }
