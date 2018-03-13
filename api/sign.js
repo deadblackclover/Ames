@@ -1,44 +1,44 @@
-const express = require('express');
-const db = require('../libs/db');
-const logger = require('../libs/logger');
-const authentication = require('../libs/authentication');
+const express = require('express')
+const db = require('../libs/db')
+const logger = require('../libs/logger')
+const authentication = require('../libs/authentication')
 
-const router = express.Router();
+const router = express.Router()
 
 router.post("/", (req, res) => {
-  if (!req.body) return res.sendStatus(400);
-  let email = req.body.email;
+  if (!req.body) return res.sendStatus(400)
+  let email = req.body.email
   if (email != null){
-    let signPromise = authentication.authenticationUser(email);
+    let signPromise = authentication.authenticationUser(email)
     signPromise.then(
       result =>{
-        res.send(result);
+        res.send(result)
       }
     )
   }
 })
 
 router.post("/token", (req, res) => {
-  if (!req.body) return res.sendStatus(400);
+  if (!req.body) return res.sendStatus(400)
   let signIn = new Promise((resolve,reject) => {
-    let token = req.body.token;
+    let token = req.body.token
     db.users.find({token:token}, function (err, docs) {
-      if(err){logger.save('dbfind',err);}
+      if(err){logger.save('dbfind',err)}
       if(docs[0] != undefined){
-        req.session.authorized = true;
-        req.session.username = docs[0].username;
-        resolve(true);
+        req.session.authorized = true
+        req.session.username = docs[0].username
+        resolve(true)
       }else{
-        logger.save('sign','Error token');
-        resolve(false);
+        logger.save('sign','Error token')
+        resolve(false)
       }
     });
   })
   signIn.then(
     result => {
-      res.send(result);
+      res.send(result)
     }
   )
 })
 
-module.exports = router;
+module.exports = router
