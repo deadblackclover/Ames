@@ -34,24 +34,12 @@ export default {
   },
   methods: {
     send: function () {
-      let to = this.to;
-      let name, host = null;
-      if(to.indexOf("@")){
-        host = to.substring(to.indexOf("@")+1);
-        name = to.substring(0,to.indexOf("@"));
-        host = 'http://' + host + '/api/profile/send';
-        axios.post(host, {
-          name: name,
-          message: this.message
-        })
-        .then(function (res) {
-          if(!res){
-            this.err = true;
-          }
-        })
-      }else{
-        this.err = true;
-      }
+    	axios.post('/api/profile/send',{
+      	to: vm.to,
+      	message: vm.message
+    	}).then((response) => {
+      	vm.messages = response.data;
+    	});
     }
   }
 }
