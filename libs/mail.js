@@ -1,4 +1,4 @@
-const logger = require('../libs/logger');
+const logger = require('../libs/logger')
 
 const sendmail = require('sendmail')({
   logger: {
@@ -10,7 +10,7 @@ const sendmail = require('sendmail')({
   silent: false,
   dkim: false,
   devPort: false
-});
+})
 
 function send(email,sub,mes) {
   return new Promise((resolve, reject) => {
@@ -21,15 +21,15 @@ function send(email,sub,mes) {
       html: mes,
     }, function(err, reply) {
       if(err){
-        logger.save('email',err);
-        resolve(false);
+        logger.save('email',err)
+        resolve(false)
       }else{
-        resolve(true);
+        resolve(true)
       }
-    });
-  });
+    })
+  })
 }
 
 module.exports = {
   send: send,
-};
+}

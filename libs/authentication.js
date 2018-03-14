@@ -16,7 +16,7 @@ let authenticationUser = (email) => {
         let data = docs[0]
         let token = Atoken.generate()
         data.token = token
-        db.users.update({email: email}, data, {}, function(err, res) {});
+        db.users.update({email: email}, data, {}, function(err, res) {})
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
         mailPromise.then((result) => {
