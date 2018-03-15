@@ -27,6 +27,7 @@ router.post('/token', (req, res) => {
       if (docs[0] !== undefined) {
         req.session.authorized = true
         req.session.username = docs[0].username
+        req.session.guid = docs[0].uid
         resolve(true)
       } else {
         logger.save('sign', 'Error token')
