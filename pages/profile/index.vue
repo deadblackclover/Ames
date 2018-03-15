@@ -5,7 +5,7 @@
         <div class="photo">
           <img :src="photo" alt="photo">
         </div>
-        <div class="">{{ username }}</div>
+        <div class="">{{ fullname ? fullname : username }}</div>
       </div>
       <div class="menu btn" @click="setView('contacts')">Contacts</div>
       <div class="menu btn" @click="setView('search')">Search</div>
@@ -40,6 +40,7 @@ export default {
   data() {
     return {
       username: null,
+      fullname: null,
       photo: null,
       currentView: 'contacts'
     }
@@ -53,6 +54,11 @@ export default {
     let vm = this;
     axios.post('/api/profile')
     .then(function (res) {
+      var fname = res.data.fname
+      var lname = res.data.lname
+      if(fname !== '' && lname !== ''){
+        vm.fullname = fname + ' ' + lname 
+      }
       vm.username = res.data.username
       vm.photo = res.data.photo
     })
