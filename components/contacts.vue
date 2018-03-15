@@ -6,9 +6,9 @@
     <div class="name-blocks" v-if="chatView">
       {{ to }}
     </div>
-    <div class="contact" v-for="contact in contacts" v-if="!chatView">
-      <div @click="showChat(contact)">
-        {{ contact }}
+    <div class="contact" v-for="item in contacts" v-if="!chatView">
+      <div @click="showChat(item.contact)">
+        {{ item.contact }}
       </div>
     </div>
     <chat v-if="chatView" :to="to"></chat>

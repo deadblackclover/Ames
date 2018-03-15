@@ -6,11 +6,11 @@ const router = express.Router()
 
 router.post('/', (req, res) => {
   if (req.session.authorized) {
-    let username = req.session.username
-    db.users.find({username:username}, function(err, docs) {
+    let guid = req.session.guid
+    db.contacts.find({guid:guid}, function(err, docs) {
       if (err) { logger.save('dbfind', err) }
       if (docs[0] !== undefined) {
-        res.send(docs[0].contacts)
+        res.send(docs)
       } else {
         res.send(false)
       }
