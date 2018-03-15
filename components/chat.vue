@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     send: function () {
+      var vm = this
     	axios.post('/api/profile/send',{
       	to: vm.to,
       	message: vm.message

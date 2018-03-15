@@ -2,7 +2,7 @@ const axios = require('axios')
 const logger = require('../libs/logger')
 
 function webfinger(host, acct) {
-  var url = 'http://' + host + '/.well-known/webfinger?resource=' + acct
+  var url = 'http://' + host + '/.well-known/webfinger?resource=acct:' + acct
   axios.get(url).then(function(res) {
     return res
   }).catch(function(err) {

@@ -45,6 +45,7 @@ let authenticationUser = (email) => {
         //
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
+
         mailPromise.then((result) => {
           db.users.insert({
             uid: uid,
@@ -58,6 +59,9 @@ let authenticationUser = (email) => {
             okey: '',
             ckey: ''
           })
+
+          db.contacts.insert({guid: uid, contact: 'deadblackclover@joindiaspora.com'})
+
           resolve(result)
         })
       }

@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
       let name = to.substring(0, to.indexOf('@'))
       let host = to.substring(to.indexOf('@') + 1)
 
-      let webfinger = federation.webfinger(host, name)
+      let webfinger = federation.webfinger(host, to)
       for (var i = 0; i < webfinger.links.length; i++) {
         if (webfinger.links[i].rel === 'http://microformats.org/profile/hcard') {
           href = webfinger.links[i].href
@@ -24,6 +24,7 @@ router.post('/', (req, res) => {
       if (href.indexOf('/hcard/users/') !== -1) {
         let guid = href.substring(href.indexOf('/hcard/users/') + 12)
         federation(host, guid, '', '')
+        res.send(true)
       } else {
         res.send(false)
       }
