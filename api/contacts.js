@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     let username = req.session.username
     db.users.find({username:username}, function(err, docs) {
       if (err) { logger.save('dbfind', err) }
-      if (docs[0] != undefined) {
+      if (docs[0] !== undefined) {
         res.send(docs[0].contacts)
       } else {
         res.send(false)
