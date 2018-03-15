@@ -5,7 +5,6 @@ const logger = require('../libs/logger')
 const router = express.Router()
 
 router.post('/', (req, res) => {
-  if (!req.body) return res.sendStatus(400)
   if (req.session.authorized) {
     let to = req.body.to
     db.messages.find({to: to}, function(err, docs) {
