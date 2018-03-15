@@ -6,8 +6,8 @@
       <h3>Decentralized and free messenger</h3>
     </div>
     <div class="main" id="main">
-      <input class="email" type="text" placeholder="E-mail" v-model="email" autofocus>
-      <input class="auth" type="button" value="Sign In/Sign Up" @click="authorization">
+      <input id='email' class="email" type="text" placeholder="E-mail" v-model="email" autofocus>
+      <input id='auth' class="auth" type="button" value="Sign In/Sign Up" @click="authorization">
       <div class="alert" role="alert" v-if="alert.visible">{{ alert.message }}</div>
     </div>
     <div class="footer">
@@ -44,22 +44,33 @@ export default {
     authorization: function(){
       let vm = this
       if(vm.email != ""){
+
+        vm.alert.visible = true
+        vm.alert.message = 'Please wait...'
+
+        var btn = document.getElementById('auth')
+        var ipt = document.getElementById('email')
+
+        btn.disabled = true
+        ipt.disabled = true
+
         axios.post('/api/sign', {
           email: vm.email
         })
         .then(function (response) {
           if(response.data == true){
-            vm.alert.visible = true
             vm.alert.message = 'The letter was successfully sent to the post!'
           }else{
-            vm.alert.visible = true
             vm.alert.message = 'Server error'
+            btn.disabled = false
+            ipt.disabled = false
           }
         })
         .catch(function (error) {
           console.log(error)
-          vm.alert.visible = true
           vm.alert.misible = 'Bad request'
+          btn.disabled = false
+          ipt.disabled = false
         })
       }else{
         vm.alert.visible = true
