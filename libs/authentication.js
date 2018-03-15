@@ -21,7 +21,7 @@ let authenticationUser = (email) => {
         let mailPromise = mail.send(email, 'Ames', message)
         mailPromise.then((result) => {
           resolve(result)
-        });
+        })
       } else {
         // Create new user
         let token = Atoken.generate()
@@ -40,22 +40,22 @@ let authenticationUser = (email) => {
         // Token for auth
         // Open rsa key
         // Close rsa key
-        //        
+        //
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
         mailPromise.then((result) => {
-        	db.users.insert({ 
-        		uid: uid, 
-        		username: '', 
-        		url: url, 
-        		fname: '', 
-        		lname: '', 
-        		email: email, 
-        		photo: null, 
-        		token: token, 
+        	db.users.insert({
+        		uid: uid,
+        		username: '',
+        		url: url,
+        		fname: '',
+        		lname: '',
+        		email: email,
+        		photo: null,
+        		token: token,
         		okey: '',
         		ckey: ''
-        	})        	
+        	})
         	resolve(result)
         })
       }
@@ -64,5 +64,5 @@ let authenticationUser = (email) => {
 }
 
 module.exports = {
-  authenticationUser: authenticationUser,
+  authenticationUser: authenticationUser
 }

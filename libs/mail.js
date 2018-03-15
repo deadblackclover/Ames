@@ -2,28 +2,28 @@ const logger = require('../libs/logger')
 
 const sendmail = require('sendmail')({
   logger: {
-    debug: function () {},
-    info: function () {},
-    warn: function () {},
-    error: function () {}
+    debug: function() {},
+    info: function() {},
+    warn: function() {},
+    error: function() {}
   },
   silent: false,
   dkim: false,
   devPort: false
 })
 
-function send(email,sub,mes) {
+function send(email, sub, mes) {
   return new Promise((resolve, reject) => {
     sendmail({
       from: 'core@ames.test',
       to: email,
       subject: sub,
-      html: mes,
+      html: mes
     }, function(err, reply) {
-      if(err){
-        logger.save('email',err)
+      if (err) {
+        logger.save('email', err)
         resolve(false)
-      }else{
+      } else {
         resolve(true)
       }
     })
@@ -31,5 +31,5 @@ function send(email,sub,mes) {
 }
 
 module.exports = {
-  send: send,
+  send: send
 }

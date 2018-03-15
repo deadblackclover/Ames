@@ -10,11 +10,11 @@ let users = new Datastore({filename: './db/users'})
 let messages = new Datastore({filename: './db/messages'})
 
 users.loadDatabase(function(err) {
-  if(err){Asave.save('dbconnect', err)}
+  if (err) { Asave.save('dbconnect', err) }
 })
 
 messages.loadDatabase(function(err) {
-  if(err){Asave.save('dbconnect', err)}
+  if (err) { Asave.save('dbconnect', err) }
 })
 
 module.exports = {

@@ -4,6 +4,7 @@
   "description": "Decentralized and free messenger",
   "scripts": {
   	 "standart": "standart",
+  	 "standart-fix": "standart --fix",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start"

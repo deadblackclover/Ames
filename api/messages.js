@@ -4,15 +4,15 @@ const logger = require('../libs/logger')
 
 const router = express.Router()
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   if (!req.body) return res.sendStatus(400)
-  if(req.session.authorized){
+  if (req.session.authorized) {
     let to = req.body.to
-    db.messages.find({to: to}, function (err, docs) {
-      if(err){logger.save('dbfind',err)}
-      if(docs[0] != undefined){
+    db.messages.find({to: to}, function(err, docs) {
+      if (err) { logger.save('dbfind', err) }
+      if (docs[0] != undefined) {
         res.send(true)
-      }else{
+      } else {
         res.send(false)
       }
     })

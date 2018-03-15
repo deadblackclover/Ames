@@ -4,18 +4,18 @@ const logger = require('../libs/logger')
 
 const router = express.Router()
 
-router.post("/", (req, res) => {
-  if(req.session.authorized){
+router.post('/', (req, res) => {
+  if (req.session.authorized) {
     let username = req.session.username
-    db.users.find({username:username}, function (err, docs) {
-      if(err){logger.save('dbfind',err)}
-      if(docs[0] != undefined){
+    db.users.find({username:username}, function(err, docs) {
+      if (err) { logger.save('dbfind', err) }
+      if (docs[0] != undefined) {
         res.send(docs[0].contacts)
-      }else{
+      } else {
         res.send(false)
       }
     })
-  }else{
+  } else {
     res.send(false)
   }
 })

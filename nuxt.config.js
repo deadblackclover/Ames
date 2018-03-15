@@ -9,7 +9,7 @@ module.exports = {
       {'http-equiv': 'X-UA-Compatible', content: 'IE=edge'}
     ],
     link: [
-      { rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Rajdhani" }
+      { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Rajdhani' }
     ]
   },
   build: {

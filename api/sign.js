@@ -5,34 +5,34 @@ const authentication = require('../libs/authentication')
 
 const router = express.Router()
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   if (!req.body) return res.sendStatus(400)
   let email = req.body.email
-  if (email != null){
+  if (email != null) {
     let signPromise = authentication.authenticationUser(email)
     signPromise.then(
-      result =>{
+      result => {
         res.send(result)
       }
     )
   }
 })
 
-router.post("/token", (req, res) => {
+router.post('/token', (req, res) => {
   if (!req.body) return res.sendStatus(400)
-  let signIn = new Promise((resolve,reject) => {
+  let signIn = new Promise((resolve, reject) => {
     let token = req.body.token
-    db.users.find({token:token}, function (err, docs) {
-      if(err){logger.save('dbfind',err)}
-      if(docs[0] != undefined){
+    db.users.find({token:token}, function(err, docs) {
+      if (err) { logger.save('dbfind', err) }
+      if (docs[0] != undefined) {
         req.session.authorized = true
         req.session.username = docs[0].username
         resolve(true)
-      }else{
-        logger.save('sign','Error token')
+      } else {
+        logger.save('sign', 'Error token')
         resolve(false)
       }
-    });
+    })
   })
   signIn.then(
     result => {
