@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 
 		db.users.find({username:username, url: url}, function(err, docs) {
       	if (err) { logger.save('dbfind', err) }
-      	if (docs[0] != undefined) {
+      	if (docs[0] !== undefined) {
         		data.links[0].href = 'http://' + docs[0].url + '/hcard/users/' + docs[0].uid
         		data.links[1].href = 'http://' + docs[0].url + '/'
         		res.send(data)

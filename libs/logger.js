@@ -1,8 +1,8 @@
-const asave = require('asave')
+const Asave = require('asave')
 
-let Asave = new asave({
+let asave = new Asave({
   path: './logs/',
   format: 'csv'
 })
 
-module.exports = Asave
+module.exports = asave

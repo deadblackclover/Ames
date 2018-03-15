@@ -1,9 +1,9 @@
 const db = require('../libs/db')
 const mail = require('../libs/mail')
 const logger = require('../libs/logger')
-const atoken = require('atoken')
+const Atoken = require('atoken')
 
-let Atoken = new atoken(16)
+let atoken = new Atoken(16)
 
 let authenticationUser = (email) => {
   return new Promise((resolve, reject) => {
@@ -11,12 +11,14 @@ let authenticationUser = (email) => {
       if (err) {
         logger.save('dbfind', err)
       }
-      if (docs[0] != undefined) {
+      if (docs[0] !== undefined) {
         // Authentication user
         let data = docs[0]
-        let token = Atoken.generate()
+        let token = atoken.generate()
         data.token = token
-        db.users.update({email: email}, data, {}, function(err, res) {})
+        db.users.update({email: email}, data, {}, function(err, res) {
+          logger.save('dbupdate', err)
+        })
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
         mailPromise.then((result) => {
@@ -24,7 +26,7 @@ let authenticationUser = (email) => {
         })
       } else {
         // Create new user
-        let token = Atoken.generate()
+        let token = atoken.generate()
         let url = 'localhost'
         let uid = 'sdghd7sgsdgsyd'
         //
@@ -44,19 +46,19 @@ let authenticationUser = (email) => {
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
         mailPromise.then((result) => {
-        	db.users.insert({
-        		uid: uid,
-        		username: '',
-        		url: url,
-        		fname: '',
-        		lname: '',
-        		email: email,
-        		photo: null,
-        		token: token,
-        		okey: '',
-        		ckey: ''
-        	})
-        	resolve(result)
+          db.users.insert({
+            uid: uid,
+            username: '',
+            url: url,
+            fname: '',
+            lname: '',
+            email: email,
+            photo: null,
+            token: token,
+            okey: '',
+            ckey: ''
+          })
+          resolve(result)
         })
       }
     })
