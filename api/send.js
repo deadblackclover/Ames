@@ -6,7 +6,6 @@ const federation = require('../libs/federation')
 const router = express.Router()
 
 router.post('/', (req, res) => {
-  let href
   if (!req.body) return res.sendStatus(400)
   if (req.session.authorized) {
     let to = req.body.to
@@ -15,19 +14,21 @@ router.post('/', (req, res) => {
       let name = to.substring(0, to.indexOf('@'))
       let host = to.substring(to.indexOf('@') + 1)
 
-      let webfinger = federation.webfinger(host, to)
-      for (var i = 0; i < webfinger.links.length; i++) {
-        if (webfinger.links[i].rel === 'http://microformats.org/profile/hcard') {
-          href = webfinger.links[i].href
-        }
-      }
-      if (href.indexOf('/hcard/users/') !== -1) {
-        let guid = href.substring(href.indexOf('/hcard/users/') + 12)
-        federation(host, guid, '', '')
-        res.send(true)
-      } else {
-        res.send(false)
-      }
+      let uid = 'dsnsjhgdsk'
+
+      federation.send(host, uid, name, message)
+
+      // Data structure
+      // uid
+      // from
+      // to
+      // message
+
+      db.messages.insert({uid: req.session.uid, from: req.session.username, to: to, message: message}, function(err) {
+        logger.save('dbMessages', err)
+      })
+
+      res.send(true)
     } else {
       res.send(false)
     }
