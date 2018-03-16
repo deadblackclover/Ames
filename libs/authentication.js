@@ -60,7 +60,7 @@ let authenticationUser = (email) => {
             ckey: ''
           })
 
-          db.contacts.insert({guid: uid, contact: 'deadblackclover@joindiaspora.com'})
+          db.contacts.insert({uid: uid, contact: 'deadblackclover@joindiaspora.com'})
 
           resolve(result)
         })
