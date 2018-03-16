@@ -15,18 +15,16 @@ router.get('/', (req, res) => {
     let data = {}
     data.subject = query.resource
     data.links = []
-    data.links.push({ rel: 'http://microformats.org/profile/hcard', type: 'text/html' })
-    data.links.push({ rel: 'http://joindiaspora.com/seed_location', type: 'text/html' })
 
     let result = query.resource.match(/(acct:)([a-zA-Z0-9]+)@([a-zA-Z0-9]+)/)
     let username = result[2]
     let url = result[3]
 
     db.users.find({username:username, url: url}, function(err, docs) {
-      if (err) { logger.save('dbfind', err) }
+      if (err) { logger.save('dbUsers', err) }
       if (docs[0] !== undefined) {
-        data.links[0].href = 'http://' + docs[0].url + '/hcard/users/' + docs[0].uid
-        data.links[1].href = 'http://' + docs[0].url + '/'
+        data.links.push({ properties:{ 'http://localhost:3000/users/uid': docs[0].uid } })
+        data.links.push({ properties:{ 'http://localhost:3000/users/open-key': docs[0].okey } })
         res.send(data)
       } else {
         res.sendStatus(404)
