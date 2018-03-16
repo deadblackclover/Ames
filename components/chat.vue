@@ -1,8 +1,9 @@
 <template lang="html">
   <div class="chat">
     <div class="chat-messages">
-      <div class="" v-for="ms in messages">
-        {{ ms }}
+      <div class="message" v-for="item in messages">
+        <div class="message-from">{{ item.from }}</div>
+        <div class="message-text">{{ item.message }}</div>
       </div>
     </div>
     <div class="chat-ipt">
@@ -26,7 +27,7 @@ export default {
   props: ['to'],
   mounted () {
     let vm = this;
-    axios.post('/api/profile/message',{
+    axios.post('/api/profile/messages',{
       to: vm.to
     }).then((response) => {
       vm.messages = response.data;
