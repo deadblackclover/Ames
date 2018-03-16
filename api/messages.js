@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
     db.messages.find({to: to}, function(err, docs) {
       if (err) { logger.save('dbMessages', err) }
       if (docs[0] !== undefined) {
-        res.send(true)
+        res.send(docs)
       } else {
         res.send(false)
       }
