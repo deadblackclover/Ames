@@ -12,7 +12,8 @@ Decentralized and free messenger
 * Babel
 * NeDB
 
-## [Documentation](https://github.com/Asocio/ames-documentation)
+## Documentation
+[ames-documentation](https://asocio.github.io/ames-documentation/)
 
 ## Start Ames
 Here is a simple Ames start:
