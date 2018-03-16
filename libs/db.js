@@ -11,15 +11,15 @@ let messages = new Datastore({filename: './db/messages'})
 let contacts = new Datastore({filename: './db/contacts'})
 
 users.loadDatabase(function(err) {
-  if (err) { asave.save('dbconnect', err) }
+  if (err) { asave.save('dbUsers', err) }
 })
 
 messages.loadDatabase(function(err) {
-  if (err) { asave.save('dbconnect', err) }
+  if (err) { asave.save('dbMessages', err) }
 })
 
 contacts.loadDatabase(function(err) {
-  if (err) { asave.save('dbconnect', err) }
+  if (err) { asave.save('dbContacts', err) }
 })
 
 module.exports = {

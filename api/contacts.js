@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
   if (req.session.authorized) {
     let uid = req.session.uid
     db.contacts.find({uid:uid}, function(err, docs) {
-      if (err) { logger.save('dbfind', err) }
+      if (err) { logger.save('dbContacts', err) }
       if (docs[0] !== undefined) {
         res.send(docs)
       } else {

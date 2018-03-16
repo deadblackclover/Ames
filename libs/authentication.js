@@ -9,7 +9,7 @@ let authenticationUser = (email) => {
   return new Promise((resolve, reject) => {
     db.users.find({email: email}, function(err, docs) {
       if (err) {
-        logger.save('dbfind', err)
+        logger.save('dbUsers', err)
       }
       if (docs[0] !== undefined) {
         // Authentication user
@@ -17,7 +17,7 @@ let authenticationUser = (email) => {
         let token = atoken.generate()
         data.token = token
         db.users.update({email: email}, data, {}, function(err, res) {
-          logger.save('dbupdate', err)
+          logger.save('dbUsers', err)
         })
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
@@ -58,9 +58,13 @@ let authenticationUser = (email) => {
             token: token,
             okey: '',
             ckey: ''
+          }, function (err) {
+            logger.save('dbUsers', err)
           })
 
-          db.contacts.insert({uid: uid, contact: 'deadblackclover@joindiaspora.com'})
+          db.contacts.insert({uid: uid, contact: 'deadblackclover@joindiaspora.com'}, function (err) {
+            logger.save('dbUsers', err)
+          })
 
           resolve(result)
         })

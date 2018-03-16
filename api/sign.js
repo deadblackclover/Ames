@@ -23,7 +23,7 @@ router.post('/token', (req, res) => {
   let signIn = new Promise((resolve, reject) => {
     let token = req.body.token
     db.users.find({token:token}, function(err, docs) {
-      if (err) { logger.save('dbfind', err) }
+      if (err) { logger.save('dbUsers', err) }
       if (docs[0] !== undefined) {
         req.session.authorized = true
         req.session.username = docs[0].username
