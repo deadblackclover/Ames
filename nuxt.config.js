@@ -21,6 +21,7 @@ module.exports = {
     '~/assets/css/profile.css',
     '~/assets/css/blink.css',
     '~/assets/css/contacts.css',
+    '~/assets/css/messages.css',
     '~/assets/css/setting.css'
   ],
   cache: false,

@@ -1,0 +1,14 @@
+.chat{
+  width: 100%;
+}
+.message{
+  border-bottom: 1px solid #d7d7d7;
+  padding: 10px;
+}
+.message-from{
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.message-text{
+
+}
