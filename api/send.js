@@ -14,21 +14,30 @@ router.post('/', (req, res) => {
       let name = to.substring(0, to.indexOf('@'))
       let host = to.substring(to.indexOf('@') + 1)
 
-      let uid = 'dsnsjhgdsk'
+      let webfinger = federation.webfinger(host, to)
+      webfinger.then(
+        result => {
+          let uid = result.links[0].properties['http://localhost:3000/users/uid']
+          let oKey = result.links[1].properties['http://localhost:3000/users/open-key']
+          console.log(uid)
+          console.log(oKey)
 
-      federation.send(host, uid, name, message)
+          federation.send(host, uid, name, message, oKey)
 
-      // Data structure
-      // uid
-      // from
-      // to
-      // message
+          // Data structure
+          // uid
+          // from
+          // to
+          // message
 
-      db.messages.insert({uid: req.session.uid, from: req.session.username, to: to, message: message}, function(err) {
-        logger.save('dbMessages', err)
-      })
+          db.messages.insert({uid: req.session.uid, from: req.session.username, to: to, message: message}, function(err) {
+            logger.save('dbMessages', err)
+          })
 
-      res.send(true)
+          res.send(true)
+        }
+      )
+
     } else {
       res.send(false)
     }
