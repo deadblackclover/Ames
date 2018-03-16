@@ -58,11 +58,11 @@ let authenticationUser = (email) => {
             token: token,
             okey: '',
             ckey: ''
-          }, function (err) {
+          }, function(err) {
             logger.save('dbUsers', err)
           })
 
-          db.contacts.insert({uid: uid, contact: 'deadblackclover@joindiaspora.com'}, function (err) {
+          db.contacts.insert({uid: uid, contact: 'deadblackclover@joindiaspora.com'}, function(err) {
             logger.save('dbUsers', err)
           })
 
