@@ -1,5 +1,5 @@
 # Ames
-![Ames](/docs/logo.png)
+![Ames](/static/logo.png)
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -11,6 +11,8 @@ Decentralized and free messenger
 * Express.js
 * Babel
 * NeDB
+
+## [Documentation](https://github.com/Asocio/ames-documentation)
 
 ## Start Ames
 Here is a simple Ames start:
