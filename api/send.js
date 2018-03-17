@@ -8,21 +8,18 @@ const router = express.Router()
 router.post('/', (req, res) => {
   if (!req.body) return res.sendStatus(400)
   if (req.session.authorized) {
+    let from = req.session.username
     let to = req.body.to
     let message = req.body.message
     if (to.indexOf('@') !== -1) {
-      let name = to.substring(0, to.indexOf('@'))
       let host = to.substring(to.indexOf('@') + 1)
 
       let webfinger = federation.webfinger(host, to)
       webfinger.then(
         result => {
           let uid = result.links[0].properties['http://localhost:3000/users/uid']
-          let oKey = result.links[1].properties['http://localhost:3000/users/open-key']
-          console.log(uid)
-          console.log(oKey)
 
-          federation.send(host, uid, name, message, oKey)
+          federation.send(host, uid, from, to, message)
 
           // Data structure
           // uid
@@ -30,14 +27,13 @@ router.post('/', (req, res) => {
           // to
           // message
 
-          db.messages.insert({uid: req.session.uid, from: req.session.username, to: to, message: message}, function(err) {
+          db.messages.insert({uid: req.session.uid, from: from, to: to, message: message}, function(err) {
             logger.save('dbMessages', err)
           })
 
           res.send(true)
         }
       )
-
     } else {
       res.send(false)
     }

@@ -1,20 +1,23 @@
 const axios = require('axios')
 const logger = require('../libs/logger')
 
-function webfinger(host, acct) {
-  var url = 'http://' + host + '/.well-known/webfinger?resource=acct:' + acct
-  axios.get(url).then(function(res) {
-    return res
-  }).catch(function(err) {
-    logger.save('federation', err)
+let webfinger = (host, acct) => {
+  return new Promise((resolve, reject) => {
+    var url = 'http://' + host + '/.well-known/webfinger?resource=acct:' + acct
+    axios.get(url).then(function(res) {
+      resolve(res.data)
+    }).catch(function(err) {
+      logger.save('federation', err)
+    })
   })
 }
 
-function send(host, guid, aesKey, eMagicEvn) {
-  var url = 'http://' + host + '/receive/users/' + guid
+let send = (host, uid, from, to, message) => {
+  var url = 'http://' + host + '/api/receive/users/' + uid
   axios.post(url, {
-    'aes_key': aesKey,
-    'encrypted_magic_envelope': eMagicEvn
+    from: from,
+    to: to,
+    message: message
   }).then(function(res) {
     console.log(res)
   }).catch(function(err) {
