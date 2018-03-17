@@ -3,9 +3,8 @@
     <div class="left">
       <div class="profile">
         <div class="photo">
-          <img :src="photo" alt="photo">
+          <img :src="photo" :alt="username">
         </div>
-        <div class="">{{ fullname ? fullname : username }}</div>
       </div>
       <div class="menu btn" @click="setView('contacts')">Contacts</div>
       <div class="menu btn" @click="setView('search')">Search</div>
