@@ -49,7 +49,7 @@ let authenticationUser = (email) => {
         mailPromise.then((result) => {
           db.users.insert({
             uid: uid,
-            username: '',
+            username: uid,
             url: url,
             fname: '',
             lname: '',
