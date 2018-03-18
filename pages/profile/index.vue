@@ -3,7 +3,7 @@
     <div class="left">
       <div class="profile">
         <div class="photo">
-          <img :src="photo" :alt="username">
+          <img :src="photo" :alt="username" :title="username">
         </div>
       </div>
       <div class="menu btn" @click="setView('contacts')">Contacts</div>
