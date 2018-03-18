@@ -3,6 +3,7 @@
 	src: url('~/assets/fonts/Montserrat-Regular.ttf');
 }
 body{
+  background-color: rgba(138,159,171,0.5);
   font-family: 'Montserrat', sans-serif;
   width: 100%;
   margin: 0;
