@@ -12,3 +12,24 @@
 .message-text{
 
 }
+.chat-messages{
+  overflow: auto;
+}
+.chat-send{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.message-send{
+  border: 0;
+  background-color: #c4cfd5;
+  height: 28px;
+  width: 100%;
+  padding-left: 10px;
+}
+.btn-send{
+  background-color: #2d2f40;
+  border:0;
+  color: white;
+  height: 30px;
+}

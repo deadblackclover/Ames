@@ -6,9 +6,9 @@
         <div class="message-text">{{ item.message }}</div>
       </div>
     </div>
-    <div class="chat-ipt">
-      <input type="text" v-model="message">
-      <input type="button" value="Send" @click="send">
+    <div class="chat-send">
+      <input class="message-send" type="text" v-model="message" placeholder="Message">
+      <input class="btn-send" type="button" value="Send" @click="send">
     </div>
   </div>
 </template>
