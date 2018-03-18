@@ -1,7 +1,6 @@
 <template lang="html">
-  <div>
+  <div class="index">
     <div class="header">
-      <img src="/logo.png" alt="Ames">
       <h1>Ames</h1>
       <h3>Decentralized and free messenger</h3>
     </div>
