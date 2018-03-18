@@ -1,4 +1,4 @@
-@media screen and (min-height: 376px){
+@media screen and (min-height: 296px){
   .main-profile{
     height: 100vh;
   }
@@ -27,6 +27,7 @@
   height: 100%;
 }
 .right{
+  background-color: rgba(138, 159, 171, .5);
   width: 100%;
 }
 .profile{
