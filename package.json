@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Decentralized and free messenger",
   "scripts": {
+    "test": "ava",
     "standart": "standart",
     "standart-fix": "standart --fix",
     "dev": "nuxt",
