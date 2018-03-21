@@ -8,6 +8,7 @@ let webfinger = (host, acct) => {
       resolve(res.data)
     }).catch(function(err) {
       logger.save('federation', err)
+      reject(err)
     })
   })
 }

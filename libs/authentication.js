@@ -62,8 +62,8 @@ let authenticationUser = (email) => {
             logger.save('dbUsers', err)
           })
 
-          db.contacts.insert({uid: uid, contact: 'deadblackclover@joindiaspora.com'}, function(err) {
-            logger.save('dbUsers', err)
+          db.contacts.insert({uid: uid, contact: 'admin@localhost:3000'}, function(err) {
+            logger.save('dbContacts', err)
           })
 
           resolve(result)
