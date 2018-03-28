@@ -51,3 +51,4 @@ export default {
   }
 }
 </script>
+<style lang="stylus" src="~/assets/css/messages.styl"></style>
