@@ -45,3 +45,4 @@ export default {
   }
 }
 </script>
+<style lang="stylus" src="~/assets/css/contacts.styl"></style>
