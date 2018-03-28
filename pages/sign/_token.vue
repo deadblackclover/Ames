@@ -36,3 +36,4 @@ export default {
   }
 }
 </script>
+<style lang="stylus" src="~/assets/css/blink.styl"></style>
