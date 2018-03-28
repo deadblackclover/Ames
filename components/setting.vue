@@ -80,3 +80,4 @@ export default {
   }
 }
 </script>
+<style lang="stylus" src="~/assets/css/setting.styl"></style>
