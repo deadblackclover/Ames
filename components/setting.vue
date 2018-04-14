@@ -15,15 +15,6 @@
       </div>
       <div class="setting-item">
         <div class="setting-item-left">
-          Change email
-        </div>
-        <div class="setting-item-right">
-          <input type="text" v-model="setting.email">
-          <input type="button" name="" value="Change" @click="changeEmail">
-        </div>
-      </div>
-      <div class="setting-item">
-        <div class="setting-item-left">
           Change photo
         </div>
         <div class="setting-item-right">
@@ -42,37 +33,29 @@ export default {
     return{
       setting: {
         username: '',
-        email: '',
         photo: '',
       }
     }
   },
   mounted(){
-    let vm = this;
-    axios.post('/api',JSON.stringify({
-      getset: true,
-    }))
-    .then((response) => {
-      vm.setting.username = response.data.username;
-      vm.setting.email = response.data.email;
-    });
+    let vm = this
+    axios.post('/api/profile').then((response) => {
+      vm.setting.username = response.data.username
+    })
   },
   methods:{
     changeUsername: function() {
-      let vm = this;
+      let vm = this
       axios.post('/api',JSON.stringify({
         setusername: true,
         username: vm.setting.username,
       }))
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data)
         if(response.data){
-          window.location.href = "/profile";
+          window.location.href = "/profile"
         }
-      });
-    },
-    changeEmail: function () {
-
+      })
     },
     changePhoto: function (path) {
 
