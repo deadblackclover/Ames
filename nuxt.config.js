@@ -16,7 +16,7 @@ module.exports = {
     vendor: ['axios']
   },
   css: [
-    { lang: 'stylus', src: '~/assets/css/main.styl'},
+    {lang:'stylus', src:'~/assets/css/main.styl'}
   ],
   cache: false,
   serverMiddleware: [

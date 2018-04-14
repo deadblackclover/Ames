@@ -32,10 +32,10 @@ test.cb('db users', t => {
   }, function(err) {
     t.fail(err)
   })
-  
+
   db.users.find({token:'token'}, function(err, docs) {
-    if(err) throw err
-    t.is(docs[0].uid,'0123456789')
+    if (err) throw err
+    t.is(docs[0].uid, '0123456789')
   })
 
   t.end()
