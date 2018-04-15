@@ -2,6 +2,7 @@ const db = require('../libs/db')
 const mail = require('../libs/mail')
 const logger = require('../libs/logger')
 const Atoken = require('atoken')
+const RSA = require('../libs/RSA')
 
 let atoken = new Atoken(16)
 
@@ -45,6 +46,7 @@ let authenticationUser = (email) => {
         //
         let message = `You token:${token}`
         let mailPromise = mail.send(email, 'Ames', message)
+        let key = RSA.getKeys()
 
         mailPromise.then((result) => {
           db.users.insert({
@@ -56,8 +58,8 @@ let authenticationUser = (email) => {
             email: email,
             photo: null,
             token: token,
-            okey: '',
-            ckey: ''
+            okey: key.public,
+            ckey: key.private
           }, function(err) {
             logger.save('dbUsers', err)
           })
