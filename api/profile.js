@@ -10,7 +10,13 @@ router.post('/', (req, res) => {
     db.users.find({username:username}, function(err, docs) {
       if (err) { logger.save('dbUsers', err) }
       if (docs[0] !== undefined) {
-        res.send(docs[0])
+        res.send({
+          uid: docs[0].uid,
+          username: docs[0].username,
+          fname: docs[0].fname,
+          lname: docs[0].lname,
+          photo: docs[0].photo
+        })
       }
     })
   }
