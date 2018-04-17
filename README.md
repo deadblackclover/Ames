@@ -23,7 +23,8 @@ git clone https://github.com/Asocio/Ames.git
 npm install
 npm start
 ```
-Node verison: 8.x
+
+Node verison: 8.x+
 
 ## Changelog
 * `v 0.2` - Change under Nuxt.js and Vue.js
