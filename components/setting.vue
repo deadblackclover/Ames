@@ -46,12 +46,11 @@ export default {
   methods:{
     changeUsername: function() {
       let vm = this
-      axios.post('/api',JSON.stringify({
+      axios.post('/api/profile/change',{
         setusername: true,
         username: vm.setting.username,
-      }))
+      })
       .then((response) => {
-        console.log(response.data)
         if(response.data){
           window.location.href = "/profile"
         }

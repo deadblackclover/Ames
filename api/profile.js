@@ -22,4 +22,23 @@ router.post('/', (req, res) => {
   }
 })
 
+router.post('/change', (req, res) => {
+  if (req.session.authorized) {
+    if (req.body.setusername) {
+      let sUsername = req.body.username
+      let nUsername = req.session.username
+      db.users.update({username: nUsername}, {$set: {username: sUsername}}, function(err) {
+        if (err) {
+          res.send(false)
+        } else {
+          req.session.username = sUsername
+          res.send(true)
+        }
+      })
+    } else {
+      res.send(false)
+    }
+  }
+})
+
 module.exports = router
