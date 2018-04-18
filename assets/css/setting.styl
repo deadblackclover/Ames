@@ -4,13 +4,12 @@
   justify-content center
   align-items center
   margin-top 10px
-  width 60%
 
 .setting-item
   display flex
   flex-direction row
   justify-content space-between
-  margin-top 5px
+  margin-top 20px
   width 100%
 
 .setting-item-left
@@ -18,9 +17,24 @@
 
 .setting-item-right
   align-self flex-end
+  display flex
+  flex-direction row
+  justify-content space-between
 
-.ipt
+.setting-ipt
   border 1px solid #d6d6d6
   background-color white
   border-radius 5px
   padding 7px
+
+.setting-btn
+  background-color white
+  border 1px solid #d6d6d6
+  border-radius 5px
+  padding 7px
+  width 142px
+  &:hover
+    box-shadow 0 0 5px rgba(214,214,214, 0.9)
+
+#setting-photo
+  display none

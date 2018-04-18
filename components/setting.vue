@@ -9,8 +9,8 @@
           Change username
         </div>
         <div class="setting-item-right">
-          <input class="ipt" type="text" v-model="setting.username">
-          <input class="btn" type="button" name="" value="Change" @click="changeUsername">
+          <input class="setting-ipt" type="text" v-model="setting.username">
+          <input class="setting-btn" type="button" name="" value="Change" @click="changeUsername">
         </div>
       </div>
       <div class="setting-item">
@@ -18,7 +18,8 @@
           Change photo
         </div>
         <div class="setting-item-right">
-          <input type="file" @change="changePhoto($event)">
+          <label for="setting-photo" class="setting-btn">Change</label>
+          <input id="setting-photo" type="file" @change="changePhoto($event)">
         </div>
       </div>
     </div>
