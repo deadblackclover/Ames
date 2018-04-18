@@ -9,8 +9,8 @@
           Change username
         </div>
         <div class="setting-item-right">
-          <input type="text" v-model="setting.username">
-          <input type="button" name="" value="Change" @click="changeUsername">
+          <input class="ipt" type="text" v-model="setting.username">
+          <input class="btn" type="button" name="" value="Change" @click="changeUsername">
         </div>
       </div>
       <div class="setting-item">
