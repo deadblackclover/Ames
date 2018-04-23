@@ -26,17 +26,16 @@ export default {
   },
   props: ['to'],
   mounted () {
-    let vm = this;
+    let vm = this
     let mes = () => {
       axios.post('/api/profile/messages',{
         to: vm.to
       }).then((response) => {
-        vm.messages = response.data;
+        vm.messages = response.data
       });
     }
     mes()
     setInterval(mes,10000)
-    
   },
   methods: {
     send: function () {
@@ -45,7 +44,7 @@ export default {
       	to: vm.to,
       	message: vm.message
     	}).then((response) => {
-      	vm.messages = response.data;
+      	vm.messages = response.data
     	});
     }
   }
