@@ -7,9 +7,6 @@ module.exports = {
     meta: [
       {charset: 'utf-8'},
       {'http-equiv': 'X-UA-Compatible', content: 'IE=edge'}
-    ],
-    link: [
-      { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Rajdhani' }
     ]
   },
   build: {
