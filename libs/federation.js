@@ -20,7 +20,9 @@ let send = (host, uid, from, to, message) => {
     to: to,
     message: message
   }).then(function(res) {
-    console.log(res)
+    if(!res.data){
+      logger.save('federation', 'Error send message to any server')
+    }
   }).catch(function(err) {
     logger.save('federation', err)
   })

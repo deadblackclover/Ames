@@ -13,6 +13,7 @@ router.post('/users/:uid', (req, res) => {
   if (uid !== '' && to !== '' && message !== '') {
     db.messages.insert({uid: uid, from: from, to: to, message: message}, function(err) {
       logger.save('dbMessages', err)
+      res.send(true)
     })
   } else {
     res.send(false)
