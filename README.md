@@ -3,6 +3,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ![Travis CI](https://travis-ci.org/Asocio/Ames.svg?branch=master)
+![License](https://img.shields.io/github/license/Asocio/Ames.svg)
 
 Decentralized and free messenger
 
