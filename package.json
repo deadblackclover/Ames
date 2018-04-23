@@ -23,6 +23,10 @@
     "messenger",
     "decentralized"
   ],
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
   "dependencies": {
     "asave": "^1.2.1",
     "atoken": "^1.1.1",

@@ -22,7 +22,8 @@ Here is a simple Ames start:
 ```bash
 git clone https://github.com/Asocio/Ames.git
 npm install
-npm start
+npm run build
+npm run start
 ```
 
 Node verison: 8.x+
