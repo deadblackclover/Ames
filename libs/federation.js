@@ -1,3 +1,7 @@
+/*   Copyright (c) 2018, Asocio. This file is
+ *   licensed under the GNU General Public License version 3 or later. See
+ *   the LICENSE file.
+ */
 const axios = require('axios')
 const logger = require('../libs/logger')
 
