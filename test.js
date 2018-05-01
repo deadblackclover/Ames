@@ -10,11 +10,16 @@ test('empty test', t => {
 test.cb('logger', t => {
   logger.save('test', 'test')
 
-  fs.readFileSync('./logs/test.csv', function(err, data) {
-    if (err) throw err
-    t.regex(data, /test/gi)
-  })
-  t.end()
+  while (true) {
+    if (fs.existsSync('./logs/test.csv')) {
+      fs.readFileSync('./logs/test.csv', function(err, data) {
+        if (err) throw err
+        t.regex(data, /test/gi)
+      })
+      t.end()
+      break
+    }
+  }
 })
 
 test.cb('db users', t => {
