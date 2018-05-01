@@ -11,7 +11,7 @@
     </div>
     <div class="footer">
       Open-Source project by
-      <a href="https://github.com/deadblackclover" target="_blank">DEADBLACKCLOVER</a>
+      <a href="https://github.com/Asocio" target="_blank">Asocio</a>
       The program is distributed under the terms of the GNU General Public License
     </div>
   </div>
