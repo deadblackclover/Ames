@@ -2,8 +2,8 @@
 ![Ames](/static/logo.png)
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-![Travis CI](https://travis-ci.org/Asocio/Ames.svg?branch=master)
-![License](https://img.shields.io/github/license/Asocio/Ames.svg)
+![Travis CI](https://travis-ci.org/ames-project/Ames.svg?branch=master)
+![License](https://img.shields.io/github/license/ames-project/Ames.svg)
 
 Decentralized and free messenger
 
@@ -15,12 +15,12 @@ Decentralized and free messenger
 * NeDB
 
 ## Documentation
-[ames-documentation](https://asocio.github.io/ames-documentation/)
+[ames-documentation]()
 
 ## Start Ames
 Here is a simple Ames start:
 ```bash
-git clone https://github.com/Asocio/Ames.git
+git clone https://github.com/ames-project/Ames.git
 npm install
 npm run build
 npm run start

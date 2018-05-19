@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Asocio/Ames"
+    "url": "https://github.com/ames-project/Ames"
   },
   "bugs": {
-    "url": "https://github.com/Asocio/Ames/issues"
+    "url": "https://github.com/ames-project/Ames/issues"
   },
-  "author": "DEADBLACKCLOVER <asocio@protonmail.com>",
+  "author": "DEADBLACKCLOVER <deadblackclover@protonmail.com>",
   "license": "GPL-3.0",
   "keywords": [
     "ames",

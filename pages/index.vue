@@ -11,7 +11,7 @@
     </div>
     <div class="footer">
       Open-Source project by
-      <a href="https://github.com/Asocio" target="_blank">Asocio</a>
+      <a href="https://github.com/ames-project" target="_blank">Ames Project</a>
       The program is distributed under the terms of the GNU General Public License
     </div>
   </div>
