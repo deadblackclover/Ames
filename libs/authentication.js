@@ -33,7 +33,7 @@ let authenticationUser = (email) => {
         // Create new user
         let token = atoken.generate()
         let url = 'localhost'
-        let uid = 'sdghd7sgsdgsyd'
+        let uid = atoken.generate()
         //
         // Data structure
         //
@@ -66,10 +66,6 @@ let authenticationUser = (email) => {
             ckey: key.private
           }, function(err) {
             logger.save('dbUsers', err)
-          })
-
-          db.contacts.insert({uid: uid, contact: 'admin@localhost:3000'}, function(err) {
-            logger.save('dbContacts', err)
           })
 
           resolve(result)
