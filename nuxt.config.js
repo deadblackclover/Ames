@@ -22,7 +22,7 @@ module.exports = {
       secret: 'super-secret-key',
       resave: false,
       saveUninitialized: false,
-      cookie: { maxAge: 60000*60*24*2 }
+      cookie: { maxAge: 60000 * 60 * 24 * 2 }
     }),
     '~/api'
   ]
