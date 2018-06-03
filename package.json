@@ -1,5 +1,5 @@
 {
-  "name": "Ames",
+  "name": "ames",
   "version": "0.2.0",
   "description": "Decentralized and free messenger",
   "scripts": {
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ames-project/Ames"
+    "url": "https://bitbucket.org/amesproject/ames"
   },
   "bugs": {
-    "url": "https://github.com/ames-project/Ames/issues"
+    "url": "https://bitbucket.org/amesproject/ames/issues"
   },
   "author": "DEADBLACKCLOVER <deadblackclover@protonmail.com>",
   "license": "GPL-3.0",
