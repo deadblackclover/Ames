@@ -14,13 +14,10 @@ Decentralized and free messenger
 * Babel
 * NeDB
 
-## Documentation
-[ames-documentation]()
-
 ## Start Ames
 Here is a simple Ames start:
 ```bash
-git clone https://github.com/ames-project/Ames.git
+git clone https://bitbucket.org/amesproject/ames.git
 npm install
 npm run build
 npm run start
@@ -29,8 +26,8 @@ npm run start
 Node verison: 8.x+
 
 ## Changelog
-* `v 0.2` - Change under Nuxt.js and Vue.js
-* `v 0.1` - Initial Release
+* `v 0.2.0` - Change under Nuxt.js and Vue.js
+* `v 0.1.0` - Initial Release
 
 ## Help project
 If you can fix and help, then please download, fork and commit my project.
