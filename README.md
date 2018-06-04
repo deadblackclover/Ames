@@ -2,8 +2,9 @@
 ![Ames](/static/logo.png)
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-![Travis CI](https://travis-ci.org/ames-project/Ames.svg?branch=master)
-![License](https://img.shields.io/github/license/ames-project/Ames.svg)
+![License](https://img.shields.io/badge/license-GPL-brightgreen.svg)
+![Node.js](https://img.shields.io/badge/node-%3E=8.x.x-brightgreen.svg)
+![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)
 
 Decentralized and free messenger
 
