@@ -2,7 +2,11 @@
   <div class="block">
     <div class="name-blocks" v-if="!chatView">
       Contacts
-      <div class="add-contact">Add</div>
+      <div class="add-block" v-if="addBlock">
+        <input v-model="contact">
+        <div class="name-blocks-btn" @click="addContact()">Ok</div>
+      </div>
+      <div class="name-blocks-btn" @click="addBlock=true" v-if="!addBlock">Add</div>
     </div>
     <div class="name-blocks" v-if="chatView">
       {{ to }}
@@ -25,7 +29,9 @@ export default {
   data(){
     return{
       contacts: '',
+      contact: '',
       chatView: false,
+      addBlock: false,
       to: ''
     }
   },
@@ -42,6 +48,16 @@ export default {
     showChat: function(name){
       this.to = name;
       this.chatView = true;
+    },
+    addContact: function(){
+      let vm = this
+      axios.post('/api/profile/add/contact',{
+      	contact: vm.contact
+    	}).then((response) => {
+      	if(response.data) {
+          vm.addBlock = false
+        }
+    	});
     }
   }
 }
