@@ -32,7 +32,7 @@ let authenticationUser = (email) => {
       } else {
         // Create new user
         let token = atoken.generate()
-        let url = 'localhost'
+        let url = 'localhost:3000'
         let uid = atoken.generate()
         //
         // Data structure

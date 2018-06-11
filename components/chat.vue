@@ -29,7 +29,7 @@ export default {
     let vm = this
     let mes = () => {
       axios.post('/api/profile/messages',{
-        to: vm.to
+        user: vm.to
       }).then((response) => {
         vm.messages = response.data
       });

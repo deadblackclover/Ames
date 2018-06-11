@@ -12,7 +12,7 @@ const router = express.Router()
 router.post('/', (req, res) => {
   if (!req.body) return res.sendStatus(400)
   if (req.session.authorized) {
-    let from = req.session.username
+    let from = req.session.username + "@localhost:3000"
     let to = req.body.to
     let message = req.body.message
     if (to.indexOf('@') !== -1) {

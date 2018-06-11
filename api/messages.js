@@ -11,8 +11,8 @@ const router = express.Router()
 router.post('/', (req, res) => {
   if (req.session.authorized) {
     let uid = req.session.uid
-    let to = req.body.to
-    db.messages.find({uid:uid, to: to}, function(err, docs) {
+    let user = req.body.user
+    db.messages.find({uid:uid, $or: [{to: user}, {from: user}]}, function(err, docs) {
       if (err) { logger.save('dbMessages', err) }
       if (docs[0] !== undefined) {
         res.send(docs)
