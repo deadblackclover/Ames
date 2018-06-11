@@ -2,6 +2,7 @@
   <div class="block">
     <div class="name-blocks" v-if="!chatView">
       Contacts
+      <div class="add-contact">Add</div>
     </div>
     <div class="name-blocks" v-if="chatView">
       {{ to }}
