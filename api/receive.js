@@ -15,7 +15,16 @@ router.post('/users/:uid', (req, res) => {
   let to = req.body.to
   let message = req.body.message
   if (uid !== '' && to !== '' && message !== '') {
-    db.messages.insert({uid: uid, from: from, to: to, message: message}, function(err) {
+    // Data structure
+    // uid
+    // from
+    // to
+    // message
+    // timestamp
+
+    let timestamp = new Date().getTime()
+
+    db.messages.insert({uid: uid, from: from, to: to, message: message, timestamp: timestamp}, function(err) {
       logger.save('dbMessages', err)
       res.send(true)
     })

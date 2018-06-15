@@ -44,7 +44,9 @@ export default {
       	to: vm.to,
       	message: vm.message
     	}).then((response) => {
-      	vm.messages = response.data
+        if (response.data) {
+          vm.message = ''
+        }
     	});
     }
   }

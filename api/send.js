@@ -12,7 +12,7 @@ const router = express.Router()
 router.post('/', (req, res) => {
   if (!req.body) return res.sendStatus(400)
   if (req.session.authorized) {
-    let from = req.session.username + "@localhost:3000"
+    let from = req.session.username + '@localhost:3000'
     let to = req.body.to
     let message = req.body.message
     if (to.indexOf('@') !== -1) {
@@ -30,8 +30,11 @@ router.post('/', (req, res) => {
           // from
           // to
           // message
+          // timestamp
 
-          db.messages.insert({uid: req.session.uid, from: from, to: to, message: message}, function(err) {
+          let timestamp = new Date().getTime()
+
+          db.messages.insert({uid: req.session.uid, from: from, to: to, message: message, timestamp: timestamp}, function(err) {
             logger.save('dbMessages', err)
           })
 
