@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/amesproject/ames"
+    "url": "https://gitlab.com/deadblackclover/Ames.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/amesproject/ames/issues"
+    "url": "https://gitlab.com/deadblackclover/Ames/issues"
   },
   "author": "DEADBLACKCLOVER <deadblackclover@protonmail.com>",
   "license": "GPL-3.0",
