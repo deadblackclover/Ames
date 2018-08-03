@@ -11,7 +11,7 @@
     </div>
     <div class="footer">
       Open-Source project by
-      <a href="https://bitbucket.org/amesproject/" target="_blank">Ames Project</a>
+      <a href="https://gitlab.com/deadblackclover/Ames" target="_blank">Ames Project</a>
       The program is distributed under the terms of the GNU General Public License
     </div>
   </div>
