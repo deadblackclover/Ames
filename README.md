@@ -12,7 +12,6 @@ Decentralized and free messenger
 * Nuxt.js
 * Vue.js
 * Express.js
-* Babel
 * NeDB
 
 ## Start Ames
