@@ -30,7 +30,7 @@
   "dependencies": {
     "asave": "^1.2.1",
     "atoken": "^1.1.1",
-    "axios": "^0.16.2",
+    "axios": "^0.18.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
